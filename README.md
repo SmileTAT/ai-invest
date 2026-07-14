@@ -1,10 +1,11 @@
 # ai-invest
 
-AI 驱动的个人投资研究助手 — 多智能体研究流水线，输出可解释、有数据溯源的投资研究报告。
+我的个人价值投资成长仓库 — 借助 AI、自主阅读、实战操作，记录并持续提升自己的价值投资能力。
 
-**项目当前处于 0 → 1 规划阶段。**
+- 🧭 工作方式与目录约定：[CLAUDE.md](CLAUDE.md)
+- 📌 投资原则清单（复利所在）：[principles.md](principles.md)
+- 🗂 决策记录 `decisions/` · 个股档案 `companies/` · 读书笔记 `reading/` · 复盘 `reviews/`
+- 📊 总览页：`python3 tools/build_dashboard.py` 生成 `reports/index.html`
+- 📦 已归档的产品蓝图：[docs/archive/PRD-product-vision.md](docs/archive/PRD-product-vision.md)
 
-- 📄 产品定义、路线图与变现路径：[docs/PRD.md](docs/PRD.md)
-- 🛠 工程规范与架构约定：[CLAUDE.md](CLAUDE.md)
-
-> 免责声明：本项目输出仅为研究参考，不构成任何投资建议。
+> 本仓库内容仅为个人学习记录，不构成任何投资建议。
