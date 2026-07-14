@@ -134,7 +134,7 @@ def build() -> str:
   .warn {{ background: var(--card); border-left: 3px solid #d97706; padding: .6rem .9rem; border-radius: 4px; }}
 </style>
 <h1>ai-invest 总览</h1>
-<p class="meta">生成于 {date.today().isoformat()} · 决策 {len(decisions)} 笔（进行中 {open_count}）· 个股档案 {len(companies)} 份</p>
+<p class="meta">生成于 {date.today().isoformat()} · 决策 {len(decisions)} 笔（进行中 {open_count}）· 个股档案 {len(companies)} 份 · <a href="learning-path.html">📍 价值投资学习之路</a></p>
 {warn}
 <h2>决策记录</h2>
 {table(["日期", "标的", "动作", "价格", "仓位", "状态", "拷问"], decision_rows, "暂无决策记录 — 从 decisions/_template.md 复制开始第一笔。")}

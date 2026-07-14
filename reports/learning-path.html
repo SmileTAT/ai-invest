@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>价值投资学习之路</title>
+<!-- 由 Claude Design「价值投资学习路径」项目转写为自包含单文件（无外部依赖），2026-07-14 -->
+<style>
+  body{margin:0;background:#f6f3ec;color:#1c1a17;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#b4451f;text-decoration:none}
+  a:hover{color:#8f3517;text-decoration:underline}
+  .serif{font-family:'Noto Serif SC','Songti SC','SimSun',serif}
+  .mono{font-family:ui-monospace,Menlo,monospace}
+  .wrap{max-width:1080px;margin:0 auto;padding:72px 40px 120px}
+  header.hero{border-bottom:3px solid #1c1a17;padding-bottom:44px}
+  .kicker{display:flex;justify-content:space-between;align-items:baseline;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.22em;color:#6f6a60}
+  h1{font-family:'Noto Serif SC','Songti SC',serif;font-weight:900;font-size:clamp(48px,9vw,88px);line-height:1.08;margin:28px 0 0;letter-spacing:.01em}
+  .lede{display:flex;gap:32px;align-items:flex-end;margin-top:32px;flex-wrap:wrap}
+  .lede p{flex:1;min-width:320px;margin:0;font-size:15px;line-height:1.9;color:#45413a}
+  .progress{flex:none;width:280px}
+  .progress .label{display:flex;justify-content:space-between;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.12em;color:#6f6a60;margin-bottom:8px}
+  .bar{height:10px;background:#e4dfd2;border:1px solid #1c1a17}
+  .bar>div{height:100%;background:#b4451f;transition:width .4s ease}
+  nav.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1c1a17;border:1px solid #1c1a17;margin-top:40px}
+  nav.stages .cell{background:#f6f3ec;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+  nav.stages .num{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.18em;color:#b4451f}
+  nav.stages .name{font-family:'Noto Serif SC','Songti SC',serif;font-weight:700;font-size:19px}
+  nav.stages .sub{font-size:12px;color:#6f6a60}
+  section.stage{margin-top:88px}
+  .stage-head{display:flex;gap:28px;align-items:baseline}
+  .stage-head .big{font-family:'Noto Serif SC','Songti SC',serif;font-weight:900;font-size:120px;line-height:.9;color:#b4451f}
+  .stage-head h2{font-family:'Noto Serif SC','Songti SC',serif;font-weight:900;font-size:42px;margin:0;line-height:1.15}
+  .stage-head .en{margin:10px 0 0;font-size:13px;letter-spacing:.08em;color:#6f6a60;font-family:ui-monospace,Menlo,monospace}
+  .stage-intro{margin:24px 0 0;max-width:680px;font-size:15px;line-height:1.9;color:#45413a}
+  .abilities{margin-top:36px;display:flex;flex-direction:column;gap:14px}
+  article.ability{background:#fdfcf8;border:1px solid #1c1a17;box-shadow:4px 4px 0 rgba(28,26,23,.9)}
+  .ab-head{display:flex;align-items:center;gap:18px;padding:20px 24px;cursor:pointer;user-select:none}
+  .ab-head:hover{background:#f3efe3}
+  .ab-code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#b4451f;letter-spacing:.1em}
+  .ab-title{flex:1;min-width:0}
+  .ab-name{font-family:'Noto Serif SC','Songti SC',serif;font-weight:700;font-size:21px}
+  .ab-en{margin-left:10px;font-size:11.5px;color:#8a8478;font-family:ui-monospace,Menlo,monospace}
+  .ab-done{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#6f6a60}
+  .chev{font-size:14px;transition:transform .2s;display:inline-block}
+  .ab-body{border-top:1px solid #1c1a17;padding:28px 24px 30px;display:flex;flex-direction:column;gap:28px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media (max-width:720px){.grid2{grid-template-columns:1fr}.stage-head .big{font-size:64px}.wrap{padding:48px 20px 80px}}
+  h4.tag{margin:0 0 10px;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.22em;color:#b4451f}
+  .ab-body p{margin:0;font-size:14px;line-height:1.9;color:#33302a}
+  .ab-body ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+  .ab-body ol li{font-size:14px;line-height:1.8;color:#33302a}
+  .validate{background:#f3efe3;border:1px dashed #b4451f;padding:20px 22px}
+  .checks{display:flex;flex-direction:column;gap:10px}
+  .check{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+  .box{flex:none;width:17px;height:17px;margin-top:2px;border:1.5px solid #1c1a17;color:#fdfcf8;font-size:12px;line-height:16px;text-align:center}
+  .check .txt{font-size:13.5px;line-height:1.7}
+  .check .kind{color:#b4451f;font-weight:700}
+  .books{margin-top:40px}
+  .books h3{display:flex;align-items:baseline;gap:14px;margin:0 0 18px}
+  .books .zh{font-family:'Noto Serif SC','Songti SC',serif;font-weight:900;font-size:22px}
+  .books .en{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.18em;color:#6f6a60}
+  .booklist{border-top:2px solid #1c1a17}
+  .book{display:flex;gap:16px;align-items:baseline;padding:14px 6px;border-bottom:1px solid #d8d2c2;cursor:pointer}
+  .book:hover{background:#f0ecdf}
+  .book .box{width:16px;height:16px;font-size:11px;line-height:15px;align-self:center;margin-top:0}
+  .book .title{font-family:'Noto Serif SC','Songti SC',serif;font-weight:700;font-size:16.5px}
+  .book .author{font-size:12.5px;color:#8a8478}
+  .badge-reading{flex:none;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;padding:2px 8px;background:#b4451f;color:#fdfcf8}
+  .book .note{flex:1;text-align:right;font-size:12.5px;color:#6f6a60}
+  footer{margin-top:96px;border-top:3px solid #1c1a17;padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  footer .quote{margin:0;font-family:'Noto Serif SC','Songti SC',serif;font-size:15px;color:#45413a}
+  footer .meta{margin:0;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.14em;color:#8a8478}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+const DATA = [
+  {
+    num: '01', name: '入门 · 打好地基', en: 'FOUNDATION — MONEY MINDSET & FINANCIAL LANGUAGE',
+    intro: '这一阶段的目标不是选股赚钱，而是建立正确的金钱观、理解「股票是公司所有权的一部分」这一核心信念，并学会阅读商业世界的通用语言——财务报表。同时开始训练最容易被忽视、却决定长期成败的能力：情绪纪律。',
+    abilities: [
+      { id: 'r1', code: 'A-01', name: '阅读与信息获取能力', enName: 'Information Literacy',
+        what: '系统性地从一手信息（年报、招股书、股东信、管理层访谈）而非二手噪音（荐股文章、社交媒体情绪）中获取知识的能力，以及做读书笔记、建立自己知识库的习惯。',
+        why: '价值投资本质上是「认知变现」。你对一家公司的理解深度，上限取决于你的信息源质量。依赖二手信息的人，永远在为别人的结论买单；而年报和股东信是最便宜、最可靠的一手信息。',
+        how: ['固定阅读节奏：每周至少 5 小时投资阅读，先精读入门书单，再逐步过渡到年报',
+              '选一家你日常消费的公司（如你常用的产品），下载它最近一年的年报，通读一遍，不求全懂',
+              '建立笔记体系：每读完一本书/一份年报，写 300 字以内的「我学到了什么」',
+              '整理自己的信息源清单：交易所公告、公司官网投资者关系页、优质股东信（伯克希尔等）'],
+        checks: [
+          { kind: '自测：', text: '我能说出年报中「管理层讨论与分析（MD&A）」部分的作用，并知道去哪里免费下载年报' },
+          { kind: '自测：', text: '我读书时会主动记笔记，且能用自己的话复述书中核心观点，而不是摘抄' },
+          { kind: '实践：', text: '完整读完一份年报，并写下 3 个「读完才知道」的事实' },
+          { kind: '实践：', text: '连续 4 周保持每周 5 小时的投资阅读记录' }
+        ] },
+      { id: 'f1', code: 'A-02', name: '财务报表分析（基础）', enName: 'Financial Statement Analysis',
+        what: '看懂三张表——资产负债表（Balance Sheet）、利润表（Income Statement）、现金流量表（Cash Flow Statement）——以及它们之间的勾稽关系，能识别一家公司「赚不赚钱、钱是真是假、家底厚不厚」。',
+        why: '财报是商业的语言。不懂财报做投资，等于不识字却想读小说。它也是最有效的排雷工具：绝大多数「爆雷」公司，在财报里早有迹象（利润高但经营现金流常年为负、应收账款异常膨胀等）。',
+        how: ['先建立框架：三张表分别回答「有什么、赚多少、钱去哪了」，理解净利润 ≠ 现金',
+              '掌握核心比率：毛利率、净利率、ROE（净资产收益率）、资产负债率、经营现金流/净利润',
+              '拿两家同行业公司（如两家白酒或两家家电企业）做对比分析，差异比绝对值更能说明问题',
+              '刻意练习排雷：找一家已暴雷的公司，回看它出事前的财报，找出预警信号'],
+        checks: [
+          { kind: '自测：', text: '我能不查资料说清楚：为什么一家公司可以「有利润却没现金」' },
+          { kind: '自测：', text: '我知道 ROE 的杜邦拆解（净利率 × 周转率 × 杠杆），并能解释高 ROE 的三种来源' },
+          { kind: '实践：', text: '独立完成一份两家同行公司的财报对比笔记（含 5 个以上关键比率）' },
+          { kind: '实践：', text: '在一家公司的历史财报中找出至少 2 个当年可见的风险信号' }
+        ] },
+      { id: 'p1', code: 'A-03', name: '投资心理与情绪管理', enName: 'Behavioral Discipline',
+        what: '认识自己的认知偏差（损失厌恶、从众、过度自信、锚定效应），并建立在市场波动中保持理性的机制——把「市场先生（Mr. Market）」当作服务你的报价员，而非指导你的老师。',
+        why: '投资是「反人性」的事业：知识决定你的上限，情绪决定你的下限。大多数投资者亏损不是因为不聪明，而是在恐惧时卖出、贪婪时买入。小额实盘正是最好的情绪训练场——亏 5% 时的心跳，书里学不到。',
+        how: ['写投资日记：每次买卖前写下理由和预期，尤其记录当时的情绪状态',
+              '给自己立规矩：任何买入决策必须隔夜再执行，避免冲动交易',
+              '主动复盘错误：每季度回看日记，标出哪些决策被情绪驱动',
+              '读行为金融相关章节（《穷查理宝典》的误判心理学是极佳教材），对照检查自己中了哪些偏差'],
+        checks: [
+          { kind: '自测：', text: '我能列出至少 5 种常见认知偏差，并各举一个自己亲身中招的例子' },
+          { kind: '自测：', text: '持仓下跌 20% 时，我的第一反应是「重新检查逻辑」而不是「割肉或补仓」' },
+          { kind: '实践：', text: '坚持写投资日记满 3 个月，每笔交易都有事前记录' },
+          { kind: '实践：', text: '经历一次 10% 以上的账户回撤，且没有做出违背原计划的操作' }
+        ] }
+    ],
+    books: [
+      { id: 'b11', title: '小狗钱钱', author: '博多·舍费尔', note: '金钱观启蒙，简单但根基', reading: true },
+      { id: 'b12', title: '穷爸爸富爸爸', author: '罗伯特·清崎', note: '资产与负债的思维转换', reading: true },
+      { id: 'b13', title: '手把手教你读财报', author: '唐朝', note: '三张表入门的最佳中文读物', reading: false },
+      { id: 'b14', title: '聪明的投资者', author: '本杰明·格雷厄姆', note: '市场先生与安全边际的源头', reading: false }
+    ]
+  },
+  {
+    num: '02', name: '进阶 · 看懂生意', en: 'INTERMEDIATE — BUSINESS QUALITY & VALUATION',
+    intro: '地基打好之后，进阶的核心是回答两个问题：这是不是一门好生意（商业模式与护城河）？这门生意值多少钱（估值）？前者决定你敢不敢重仓拿住，后者决定你在什么价格出手。',
+    abilities: [
+      { id: 'm2', code: 'B-01', name: '商业模式与护城河分析', enName: 'Business Model & Moat',
+        what: '理解一家公司「靠什么赚钱、为什么是它赚而不是别人赚、这种优势能持续多久」。护城河（Moat）的典型来源：无形资产（品牌/专利/牌照）、转换成本、网络效应、成本优势、规模效应。',
+        why: '段永平说「买股票就是买公司，买公司就是买它未来现金流的折现」——而未来现金流是否可靠，完全取决于生意的质地。没有护城河的高利润会被竞争迅速抹平；看懂护城河，才有资格谈「长期持有」。',
+        how: ['用一句话说清一家公司的商业模式：向谁、卖什么、凭什么持续赚钱',
+              '对照五种护城河来源逐一检验，警惕「伪护城河」（如单纯的先发优势、风口）',
+              '看竞争格局：这个行业是「一家独大」「双寡头」还是「混战」？利润率长期趋势如何？',
+              '建立自己的能力圈（Circle of Competence）清单：明确写下「我看得懂」和「我看不懂」的行业'],
+        checks: [
+          { kind: '自测：', text: '我能对能力圈内的一家公司，脱稿讲清它的商业模式和护城河来源，并经得起追问' },
+          { kind: '自测：', text: '我能举出一个「护城河被侵蚀」的真实案例，并说明当时的信号' },
+          { kind: '实践：', text: '写出 3 家公司的商业模式一页纸分析（生意模式 / 护城河 / 竞争格局 / 主要风险）' },
+          { kind: '实践：', text: '明确写下自己的能力圈清单，并因「看不懂」而主动放弃过至少一个热门机会' }
+        ] },
+      { id: 'v2', code: 'B-02', name: '估值方法', enName: 'Valuation — DCF, PE/PB & Beyond',
+        what: '给企业「称重」的能力：理解估值的锚是未来自由现金流折现（DCF），并熟练使用 PE、PB、PS、股息率等相对估值工具，知道每种工具适用于什么类型的公司、失效于什么场景。',
+        why: '再好的公司，买贵了也是坏投资。估值提供的不是精确答案，而是「模糊的正确」——它帮你建立安全边际（Margin of Safety）：用五毛钱买一块钱的东西，为自己的判断错误留出缓冲。',
+        how: ['先理解 DCF 的思想而非公式：价值 = 企业存续期内自由现金流的折现和，重点是对增长和确定性的判断',
+              '掌握相对估值的适用边界：PE 适合盈利稳定的公司，PB 适合重资产/金融，周期股用 PE 反而危险',
+              '给同一家公司做三档估值：悲观 / 中性 / 乐观，训练区间思维而非点估计',
+              '回测练习：找出一家公司五年前的数据，做当时的估值，再对照后来的走势检验假设'],
+        checks: [
+          { kind: '自测：', text: '我能解释为什么「低 PE ≠ 便宜」，并举出一个价值陷阱（Value Trap）的例子' },
+          { kind: '自测：', text: '我理解折现率的含义，知道利率变化如何影响资产估值' },
+          { kind: '实践：', text: '独立为一家能力圈内的公司完成三档估值区间，并写明关键假设' },
+          { kind: '实践：', text: '在一笔真实小额买入前，书面写下我的估值逻辑和安全边际，并在事后复盘' }
+        ] }
+    ],
+    books: [
+      { id: 'b21', title: '投资中最简单的事', author: '邱国鹭', note: '好行业、好公司、好价格', reading: true },
+      { id: 'b22', title: '段永平投资问答录（投资实践）', author: '段永平', note: '买股票就是买公司的知行合一', reading: true },
+      { id: 'b23', title: '巴菲特致股东的信', author: '沃伦·巴菲特', note: '护城河与资本配置的原典', reading: false },
+      { id: 'b24', title: '估值的艺术', author: '尼古拉斯·斯密德林', note: '系统的估值工具箱', reading: false }
+    ]
+  },
+  {
+    num: '03', name: '成熟 · 构建体系', en: 'MATURITY — SYSTEM, CYCLES & PORTFOLIO',
+    intro: '成熟阶段的标志是从「分析单家公司」升级为「管理一个组合、穿越一轮周期」。你需要理解宏观与行业的位置感、学会仓位与风险的分配，最终形成一套写得出来、执行得下去、可持续迭代的投资体系。',
+    abilities: [
+      { id: 'ma3', code: 'C-01', name: '宏观与行业分析', enName: 'Macro & Industry Cycles',
+        what: '理解利率、通胀、信用周期对资产价格的影响，以及行业生命周期（导入 / 成长 / 成熟 / 衰退）与产能周期的位置判断。目标不是预测宏观，而是知道「我们大致处在周期的什么位置」。',
+        why: '霍华德·马克斯说：我们无法预测，但可以准备。宏观决定潮水方向——同样优秀的公司，在利率 2% 和 6% 的环境下估值天差地别；行业位置决定顺风逆风，在衰退行业里选股是逆水行舟。',
+        how: ['建立周期仪表盘：跟踪利率、社融/信贷、估值分位数等少数关键指标，季度更新一次',
+              '为持仓的每个行业画生命周期位置图，判断渗透率与竞争格局所处阶段',
+              '读历史：研究至少两轮完整的牛熊周期（如 2007、2015、2021 前后），看当时的估值与情绪',
+              '刻意区分「周期性变化」与「结构性变化」，避免在周期底部把暂时困难当永久衰退'],
+        checks: [
+          { kind: '自测：', text: '我能说清利率上升对成长股与价值股估值的不同影响及原因' },
+          { kind: '自测：', text: '对自己的每个持仓，我能说出它所在行业处于生命周期的哪个阶段、依据是什么' },
+          { kind: '实践：', text: '写一份 2 页以内的年度宏观与行业展望备忘录（重点是位置判断而非预测）' },
+          { kind: '实践：', text: '复盘一轮历史牛熊，写出当时估值 / 情绪 / 政策的演变时间线' }
+        ] },
+      { id: 'po3', code: 'C-02', name: '组合管理与仓位控制', enName: 'Portfolio & Position Sizing',
+        what: '把单个「好判断」组装成能活下来的整体：确定持仓数量与集中度、单只股票的仓位上限、买入卖出的分批纪律、现金的角色，以及事先写好的应对预案（下跌加仓线 / 逻辑破坏卖出线）。',
+        why: '投资的第一原则是不要亏钱——指的是不可挽回的永久性损失。再高的胜率，一次满仓押错就能出局。组合管理的意义是让你「判断对时赚得足够，判断错时输得起」，长期留在牌桌上。',
+        how: ['写下自己的仓位规则：单只上限、行业上限、现金下限，规则先于个案',
+              '按确定性分配仓位：理解越深、赔率越好的机会仓位越重，而不是平均分配',
+              '为每个持仓写「卖出预案」：什么情况说明逻辑被破坏、什么情况只是价格波动',
+              '每季度做一次组合体检：集中度、相关性、每个持仓的逻辑是否仍然成立'],
+        checks: [
+          { kind: '自测：', text: '我有一份成文的仓位规则，且能解释每条规则背后的理由' },
+          { kind: '自测：', text: '我能区分「价格下跌」与「逻辑破坏」，并各举一个自己组合里的例子' },
+          { kind: '实践：', text: '连续 4 个季度执行组合体检并留下书面记录' },
+          { kind: '实践：', text: '完整经历一次按预案执行的卖出（无论止盈或认错），且复盘确认执行未变形' }
+        ] }
+    ],
+    books: [
+      { id: 'b31', title: '穷查理宝典', author: '查理·芒格', note: '多元思维模型与误判心理学', reading: true },
+      { id: 'b32', title: '投资最重要的事', author: '霍华德·马克斯', note: '风险、周期与第二层思维', reading: false },
+      { id: 'b33', title: '周期', author: '霍华德·马克斯', note: '钟摆与位置感', reading: false },
+      { id: 'b34', title: '怎样选择成长股', author: '菲利普·费雪', note: '定性研究与闲聊法', reading: false }
+    ]
+  }
+];
+
+const STORE_KEY = 'vi-path-checks-v1';
+let checks = {};
+try { checks = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch (e) {}
+let expanded = { r1: true };
+
+function save() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(checks)); } catch (e) {}
+}
+
+function esc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function render() {
+  let done = 0, total = 0;
+  const stageStats = [];
+  const stageHtml = DATA.map(st => {
+    let stDone = 0, stTotal = 0;
+    const abilitiesHtml = st.abilities.map(ab => {
+      const abChecks = ab.checks.map((c, i) => {
+        const id = ab.id + '-c' + i;
+        const on = !!checks[id];
+        stTotal++; total++;
+        if (on) { stDone++; done++; }
+        return `
+          <div class="check" data-check="${id}">
+            <span class="box" style="background:${on ? '#1c1a17' : 'transparent'}">${on ? '✓' : ''}</span>
+            <span class="txt" style="color:${on ? '#8a8478' : '#33302a'};text-decoration:${on ? 'line-through' : 'none'}">
+              <span class="kind">${esc(c.kind)}</span>${esc(c.text)}</span>
+          </div>`;
+      });
+      const abDone = ab.checks.filter((c, i) => checks[ab.id + '-c' + i]).length;
+      const isOpen = !!expanded[ab.id];
+      const body = !isOpen ? '' : `
+        <div class="ab-body">
+          <div class="grid2">
+            <div><h4 class="tag">WHAT · 是什么</h4><p>${esc(ab.what)}</p></div>
+            <div><h4 class="tag">WHY · 为什么</h4><p>${esc(ab.why)}</p></div>
+          </div>
+          <div>
+            <h4 class="tag">HOW · 如何构建</h4>
+            <ol>${ab.how.map(h => `<li>${esc(h)}</li>`).join('')}</ol>
+          </div>
+          <div class="validate">
+            <h4 class="tag" style="margin-bottom:14px">VALIDATE · 如何验证（勾选自测）</h4>
+            <div class="checks">${abChecks.join('')}</div>
+          </div>
+        </div>`;
+      return `
+        <article class="ability">
+          <div class="ab-head" data-expand="${ab.id}">
+            <span class="ab-code">${esc(ab.code)}</span>
+            <div class="ab-title"><span class="ab-name">${esc(ab.name)}</span><span class="ab-en">${esc(ab.enName)}</span></div>
+            <span class="ab-done">${abDone}/${ab.checks.length}</span>
+            <span class="chev" style="transform:rotate(${isOpen ? 180 : 0}deg)">▾</span>
+          </div>
+          ${body}
+        </article>`;
+    });
+    const booksHtml = st.books.map(b => {
+      const on = !!checks[b.id];
+      stTotal++; total++;
+      if (on) { stDone++; done++; }
+      return `
+        <div class="book" data-check="${b.id}">
+          <span class="box" style="background:${on ? '#1c1a17' : 'transparent'}">${on ? '✓' : ''}</span>
+          <span class="title" style="color:${on ? '#8a8478' : '#1c1a17'}">${esc(b.title)}</span>
+          <span class="author">${esc(b.author)}</span>
+          ${b.reading ? '<span class="badge-reading">在读</span>' : ''}
+          <span class="note">${esc(b.note)}</span>
+        </div>`;
+    });
+    stageStats.push({ num: st.num, name: st.name, label: stDone + ' / ' + stTotal + ' 项完成' });
+    return `
+      <section class="stage">
+        <div class="stage-head">
+          <span class="big">${esc(st.num)}</span>
+          <div><h2>${esc(st.name)}</h2><p class="en">${esc(st.en)}</p></div>
+        </div>
+        <p class="stage-intro">${esc(st.intro)}</p>
+        <div class="abilities">${abilitiesHtml.join('')}</div>
+        <div class="books">
+          <h3><span class="zh">本阶段书单</span><span class="en">READING LIST</span></h3>
+          <div class="booklist">${booksHtml.join('')}</div>
+        </div>
+      </section>`;
+  });
+
+  const pct = total ? Math.round(done / total * 100) : 0;
+  document.getElementById('app').innerHTML = `
+    <header class="hero">
+      <div class="kicker"><span>PERSONAL LEARNING MAP</span><span>VALUE INVESTING · 价值投资</span></div>
+      <h1>价值投资<br>学习之路</h1>
+      <div class="lede">
+        <p>买股票就是买公司。这份学习地图把这条路分为三个阶段、七项核心能力——每项能力回答四个问题：<strong>是什么（What）、为什么（Why）、如何构建（How）、如何验证（Validate）</strong>。勾选进度会自动保存，随时回来续上。</p>
+        <div class="progress">
+          <div class="label"><span>总进度 PROGRESS</span><span>${done} / ${total}</span></div>
+          <div class="bar"><div style="width:${pct}%"></div></div>
+        </div>
+      </div>
+      <nav class="stages">
+        ${stageStats.map(s => `<div class="cell"><span class="num">STAGE ${esc(s.num)}</span><span class="name">${esc(s.name)}</span><span class="sub">${esc(s.label)}</span></div>`).join('')}
+      </nav>
+    </header>
+    ${stageHtml.join('')}
+    <footer>
+      <p class="quote">「用买下整家公司的心态，去买它的一部分。」</p>
+      <p class="meta">进度保存在本机 · 随时勾选更新</p>
+    </footer>`;
+}
+
+document.getElementById('app').addEventListener('click', e => {
+  const check = e.target.closest('[data-check]');
+  if (check) {
+    const id = check.dataset.check;
+    checks[id] = !checks[id];
+    save();
+    render();
+    return;
+  }
+  const head = e.target.closest('[data-expand]');
+  if (head) {
+    const id = head.dataset.expand;
+    expanded[id] = !expanded[id];
+    render();
+  }
+});
+
+render();
+</script>
+</body>
+</html>

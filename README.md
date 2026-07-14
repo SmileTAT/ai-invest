@@ -6,6 +6,7 @@
 - 📌 投资原则清单（复利所在）：[principles.md](principles.md)
 - 🗂 决策记录 `decisions/` · 个股档案 `companies/` · 读书笔记 `reading/` · 复盘 `reviews/`
 - 📊 总览页：`python3 tools/build_dashboard.py` 生成 `reports/index.html`
+- 📍 学习地图：[reports/learning-path.html](reports/learning-path.html)（三阶段 · 七项能力 · 勾选进度本地保存）
 - 📦 已归档的产品蓝图：[docs/archive/PRD-product-vision.md](docs/archive/PRD-product-vision.md)
 
 > 本仓库内容仅为个人学习记录，不构成任何投资建议。
